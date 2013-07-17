@@ -1,18 +1,12 @@
 <?php
-/* =====================================================================================
- * CONTROLADOR PRINCIPAL
- * ===================================================================================== */
 session_start();
 class Inspector extends CI_Controller {
-	/* =================================================================================
-	 * Funcion index()
-	 * ---------------------------------------------------------------------------------
-	 * Funcion que se carga por defecto si no se especifica ninguna en la url
-	 * ================================================================================= */
+	/* =========================================================================
+     * INDEX()
+     * ========================================================================= */
 	public function index() {
 		if(!isset($_SESSION['login']))
         {   
-            // Se muestra el formulario de login
             $this->load->view('login_view');
         }
         else
@@ -21,57 +15,66 @@ class Inspector extends CI_Controller {
         }
 	}
 	/* =========================================================================
-     * Funcion cerrar_sesion()
-     * -------------------------------------------------------------------------
-     * Esta funcion se encarga de cerrar una sesion abierta.
-     * Destrute la sesion y nos manda a la pagina de login
-     * ========================================================================= */   
-    public function cerrar_sesion()
-    {
+     * CERRAR_SESION()
+     * ========================================================================= */
+    public function cerrar_sesion() {
         session_destroy();
         redirect('/inspector');
     }
     /* =========================================================================
-     * Funcion validar_login()
-     * -------------------------------------------------------------------------
-     * Esta funcion valida los campos introducidos en el formulario de login.
-     * Envia los datos del formulario al model 'login_model' y dependiendo de 
-     * la respuesta obtenida, nos manda de nuevo al login (usuario incorrecto)
-     * o al panel de administracion (usuario correcto)
+     * VALIDAR_LOGIN()
      * ========================================================================= */
-    public function validar_login()
-    {
-            // Se validan que los campos esten introducidos correctamente mediante la libreria form_validation
-            $this->form_validation->set_rules('userlogin','usuario','required');     
-            $this->form_validation->set_rules('passwordlogin','password','required');
-            $this->form_validation->set_message('required', 'El campo %s es obligatorio');
-            // Si no pasa la verificación, se vuelve a mostrar el formulario
-            if(($this->form_validation->run()==FALSE))
+    public function validar_login() {
+        $this->form_validation->set_rules('userlogin','usuario','required');     
+        $this->form_validation->set_rules('passwordlogin','password','required');
+        $this->form_validation->set_message('required', 'El campo %s es obligatorio');
+        if(($this->form_validation->run()==FALSE))
+        {
+            $this->load->view('login_view');                     
+        }
+        else
+        {                              
+            $this->load->model('login_model');
+            $Existe=$this->login_model->ValidarUsuario($_POST['userlogin'],$_POST['passwordlogin']);
+            if($Existe)
             {
-                $this->load->view('login_view');                     
+                $userlogin=$_POST['userlogin'];
+                $_SESSION['login'] = $userlogin;
+                redirect('/inspector');
             }
-            // Si pasa la verificacion
             else
-            {                              
-                // Se carga el modelo "login_model"
-                $this->load->model('login_model');
-                // Se comprueba si el usuario y contraseña existen en la base de datos
-                $Existe=$this->login_model->ValidarUsuario($_POST['userlogin'],$_POST['passwordlogin']);   //   comprobamos que el usuario exista en la base de datos y la password ingresada sea correcta
-                // Si $Existe recibe TRUE, el usuario y contraseña existen. Si es FALSE, no existe el usuario o contraseña incorrecta
-                if($Existe)
-                {
-                    $userlogin=$_POST['userlogin'];
-                    $_SESSION['login'] = $userlogin;
-                    $this->load->view('inspector_view');
-                }
-                else
-                {   //   Si no logró validar
-                    $data['error']="Email o password incorrectos, por favor vuelva a intentarlo.";
-                    // Se vuelve al formulario y le pasa por parametro el error
-                    $this->load->view('login_view',$data);
-                }
+            {
+                $data['error']="Email o password incorrectos, por favor vuelva a intentarlo.";
+                $this->load->view('login_view',$data);
             }
-        
+        } 
+    }
+    /* =========================================================================
+     * REGISTRO()
+     * ========================================================================= */
+    public function registro() {
+    	$this->load->model('registro_model');
+    	$data['cooperativas'] = $this->registro_model->getCooperativas();
+    	$this->load->view('registro_view', $data);
+    }
+    /* =========================================================================
+     * VALIDAR_REGISTRO()
+     * ========================================================================= */
+    public function validar_registro() {
+    	$this->load->model('registro_model');
+    	$datos = array(
+    		'nombre' => $_POST['nombre'],
+    		'apellidos' => $_POST['apellidos'],
+    		'telefono' => $_POST['telefono'],
+    		'email' => $_POST['email'],
+    		'password' => sha1($_POST['password']),
+    		'id_cooperativa' => $_POST['cooperativa']
+    	);
+    	$resultado = $this->registro_model->registro($datos);
+    	if($resultado==0){
+    		$data['exito'] = "Usuario registrado con éxito. Por favor, logueate.";
+    		$this->load->view('login_view', $data);
+    	}
     }
 }
 ?>

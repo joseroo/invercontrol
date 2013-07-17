@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf8" />
-    <title>Inver-Control | Panel de administración - Login</title>
+    <title>Inver-Control | Panel de administración - Registro</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="<?php echo base_url(); ?>css/font-awesome.min.css" rel="stylesheet" media="screen">
@@ -24,8 +24,8 @@
     </div>
     <div class="account-container">
         <div class="login-panel content clearfix">		
-            <?php echo form_open('inspector/validar_login', array('id'=>'login-form')); ?>
-                <center><img src="<?php echo base_url();?>img/candado.png"><h1>Iniciar sesión</h1></center>
+            <?php echo form_open('inspector/validar_registro', array('id'=>'registro-form')); ?>
+                <center><img src="<?php echo base_url();?>img/user.png"><h1>Registro</h1></center>
                 <br>
                 <div class="ErrorLogin">
                     <?php
@@ -39,46 +39,29 @@
                     }
                     ?>
                 </div>
-                <div class="ErrorLogin">
-                    <?php
-                    if(isset($exito)){
-                     ?>
-                        <div class="alert alert-success fade in">
-                            <a class="close" data-dismiss="alert" href="#">&times;</a>
-                            <?php echo $exito?>
-                        </div>
-                     <?php
-                    }
-                    ?>
-                </div>
-                <div class="form-login well well-small">
-                <div class="login-fields">
+                <div class="form-registro well well-small">
                     
-                    <div class="field">  
-                        <div class="input-prepend">
-                            <span class="add-on"><i class="icon-large icon-user"></i></span>                        
-                            <input type="text" id="login" name="userlogin" value="<?= set_value('userlogin'); ?>" placeholder="Email.." class="login username-field" autofocus>
-                        </div>
-                        <div class="ErrorLogin"><?php echo form_error('userlogin');?></div>
-                    </div>
+                    <input type="text" id="nombre" name="nombre" placeholder="nombre..." required="required" /><br>
+                    <input type="text" id="apellidos" name="apellidos" placeholder="apellidos..." required="required" /><br>
+                    <input type="tel" id="telefono" name="telefono" placeholder="teléfono..." required="required" /><br>
+                    <input type="email" id="email" name="email" placeholder="email..." required="required" /><br>
+                    <input type="password" id="password" name="password" placeholder="contraseña..." required="required" /><br>
+                    <select name="cooperativa" id="cooperativa" required="required">
+                        <option value="" selected="selected">Selecciona una cooperativa...</option>
+                        <?php 
+                            foreach($cooperativas as $coop){
+                                echo "<option value='".$coop->id."'>".$coop->nombre."</option>";
+                            }
+                        ?>
+                    </select><br>
+                    <small>* Todos los campos son obligatorios.</small>
 
-                    <div class="field">
-                        <div class="input-prepend" id="campo-password-login">
-                            <span class="add-on"><i class="icon-large icon-pencil"></i></span>                                                
-                            <input type="password" id="password" name="passwordlogin" value="<?= set_value('passwordlogin'); ?>" placeholder="Contraseña.." class="login password-field">
-                        </div>
-                        <div class="ErrorLogin"><?= form_error('passwordlogin');?></div>
-                    </div>
-                </div>
                 </div>
                 <div class="login-actions">
                     <div>
                         <center>
-                            <button type="submit" class="btn-login btn btn-warning btn-large btn-entrar"><i class="icon-signin"></i> Entrar</button>
-                            <br><br>
-                            <a href="<?php echo base_url();?>index.php/inspector/registro">¿Aún no tienes cuenta? Regístrate!</a>
-                            <br>
-                            <a href="#">¿Olvidaste la contraseña?</a>
+                            <button type="submit" class="btn btn-warning btn-large btn-registro"><i class="icon-ok"></i> Registrarme</button>
+                            <a href="<?php echo base_url();?>index.php/inspector" class="btn btn-danger btn-large btn-registro"><i class="icon-remove"></i> Volver</a>
                         </center>                 
                     </div>
                 </div>	
