@@ -2,7 +2,7 @@
 <?php $this->load->helper("url"); ?>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html;charset=utf8" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <title>Inver-Control | Panel de administración - Registro</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet" media="screen">
