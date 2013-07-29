@@ -24,7 +24,7 @@
     </div>
     <div class="account-container">
         <div class="login-panel content clearfix">		
-            <?php echo form_open('inspector/validar_login', array('id'=>'login-form')); ?>
+            <?php echo form_open('tecnico/validar_login', array('id'=>'login-form')); ?>
                 <center><img src="<?php echo base_url();?>img/candado.png"><h1>Iniciar sesión</h1></center>
                 <br>
                 <div class="ErrorLogin">
@@ -76,7 +76,7 @@
                         <center>
                             <button type="submit" class="btn-login btn btn-warning btn-large btn-entrar"><i class="icon-signin"></i> Entrar</button>
                             <br><br>
-                            <a href="<?php echo base_url();?>index.php/inspector/registro">¿Aún no tienes cuenta? Regístrate!</a>
+                            <a href="<?php echo base_url();?>index.php/tecnico/registro">¿Aún no tienes cuenta? Regístrate!</a>
                             <br>
                             <a href="#">¿Olvidaste la contraseña?</a>
                         </center>                 

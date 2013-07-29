@@ -5,7 +5,7 @@ class Registro_model extends CI_Model{
 		return $cooperativas->result();
 	}
 	function registro($datos){
-		$res = $this->db->insert('inspectores', $datos);
+		$res = $this->db->insert('tecnicos', $datos);
 		if($res==false) return 1;
 		else return 0;
 	}

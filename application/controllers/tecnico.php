@@ -1,6 +1,6 @@
 <?php
 session_start();
-class Inspector extends CI_Controller {
+class Tecnico extends CI_Controller {
 	/* =========================================================================
      * INDEX()
      * ========================================================================= */
@@ -11,7 +11,7 @@ class Inspector extends CI_Controller {
         }
         else
         {
-             $this->load->view('inspector_view');
+             $this->load->view('tecnico_view');
         }
 	}
 	/* =========================================================================
@@ -19,7 +19,7 @@ class Inspector extends CI_Controller {
      * ========================================================================= */
     public function cerrar_sesion() {
         session_destroy();
-        redirect('/inspector');
+        redirect('/tecnico');
     }
     /* =========================================================================
      * VALIDAR_LOGIN()
@@ -39,8 +39,9 @@ class Inspector extends CI_Controller {
             if($Existe)
             {
                 $userlogin=$_POST['userlogin'];
+                $_SESSION['nombre'] = $Existe->nombre;
                 $_SESSION['login'] = $userlogin;
-                redirect('/inspector');
+                redirect('/tecnico');
             }
             else
             {

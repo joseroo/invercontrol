@@ -36,3 +36,61 @@ h1{font-weight: normal;}
 	padding-top: 20px;
 }
 .btn{font-family: 'Open Sans', sans-serif;}
+.panel-tecnico{margin-top: 10px;}
+.btn .caret{margin-bottom: 8px;}
+.dropdown-menu>li>a{text-align: left;}
+#texto-busqueda{margin-top: 9px;}
+#menu-principal{
+	min-height: 100px;
+}
+#ultimas-recetas{
+	min-height: 100px;
+}
+#estadisticas{
+	min-height: 100px;
+}
+.panel {
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
+}
+.panel-heading {
+	padding: 0px 15px;
+	margin: -15px -15px 15px;
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #dddddd;
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+}
+.panel-title {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 17.5px;
+	font-weight: 500;
+	text-align: center;
+}
+
+.panel-primary { border-color: rgb(66, 139, 202);}
+.panel-info {border-color: #bce8f1;}
+.panel-success {border-color: #d6e9c6;}
+.panel-danger {border-color: #eed3d7;}
+
+
+.panel-info .panel-heading {
+	color: #3a87ad;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+}
+.panel-success .panel-heading {
+	color: #468847;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+.panel-danger .panel-heading {
+	color: #b94a48;
+	background-color: #f2dede;
+	border-color: #eed3d7;
+}

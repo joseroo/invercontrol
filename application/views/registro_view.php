@@ -61,7 +61,7 @@
                     <div>
                         <center>
                             <button type="submit" class="btn btn-warning btn-large btn-registro"><i class="icon-ok"></i> Registrarme</button>
-                            <a href="<?php echo base_url();?>index.php/inspector" class="btn btn-danger btn-large btn-registro"><i class="icon-remove"></i> Volver</a>
+                            <a href="<?php echo base_url();?>index.php/tecnico" class="btn btn-danger btn-large btn-registro"><i class="icon-remove"></i> Volver</a>
                         </center>                 
                     </div>
                 </div>	
