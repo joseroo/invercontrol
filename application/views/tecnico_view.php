@@ -36,19 +36,23 @@
 				<div class="panel-heading">
 					<h3 class="panel-title"><i class="icon-tasks"></i> Menú principal</h3>
 				</div>
-				Contenido
+				<a href="#" class="enlaces-menu">Gestionar Recetas</a>
+				<a href="#" class="enlaces-menu">Gestionar Curas</a>
+				<a href="#" class="enlaces-menu">Gestionar Productos</a>
+				<a href="#" class="enlaces-menu">Dar de baja Agricultores</a>
 			</div>
 			<div class="panel panel-success span4" id="ultimas-recetas">
 				<div class="panel-heading">
 					<h3 class="panel-title"><i class="icon-file-text-alt"></i> Últimas recetas</h3>
 				</div>
-				Recetas
+				<a href="#" class="enlaces-ultimas-recetas"><strong>#1</strong> - Receta para Finca 8 / Invernadero 3 - José Rodríguez <i class="icon-remove"></i></a>
+				<a href="#" class="enlaces-ultimas-recetas"><strong>#234</strong> - Receta para Finca 1 / Invernadero 7 - Agricultor Apellido <i class="icon-ok"></i></a>
 			</div>
 			<div class="panel panel-danger span4" id="estadisticas">
 				<div class="panel-heading">
 					<h3 class="panel-title"><i class="icon-bar-chart"></i> Estadísticas</h3>
 				</div>
-				Porcentajes
+				<center><img src="<?php echo base_url();?>img/grafica.png"></center>
 			</div>
 		</div>
 	</div>

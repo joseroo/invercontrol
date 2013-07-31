@@ -94,3 +94,34 @@ h1{font-weight: normal;}
 	background-color: #f2dede;
 	border-color: #eed3d7;
 }
+.enlaces-menu{
+	display: block;
+	padding: 5px;
+	padding-left: 10px;
+	cursor: pointer;
+	background-color: #d9edf7;
+	border-radius: 5px;
+	margin-bottom: 5px;
+}
+.enlaces-menu:hover{
+	text-decoration: none;
+	color: white;
+	background-color: blue;
+}
+.enlaces-ultimas-recetas{
+	display: block;
+	border: 1px solid rgb(124, 194, 124);
+	padding: 20px;
+	font-size: 15px;
+	margin-bottom: 10px;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	color: #468847;
+	border-radius: 5px;
+}
+.enlaces-ultimas-recetas:hover{
+	text-decoration: none;
+	background-color: green;
+	color: white;
+}
+.enlaces-ultimas-recetas>i{float:right;}
