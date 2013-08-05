@@ -11,6 +11,8 @@
     <link href='http://fonts.googleapis.com/css?family=Cinzel:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script src="<?php echo base_url(); ?>js/jquery-1.7.2.min.js"></script>
+    <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container-fluid">

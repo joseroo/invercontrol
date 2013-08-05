@@ -125,3 +125,21 @@ h1{font-weight: normal;}
 	color: white;
 }
 .enlaces-ultimas-recetas>i{float:right;}
+.accordion-toggle{
+	background-color: #d9edf7;
+}
+.accordion-group{
+	border-color: #bce8f1;
+	margin-bottom: 5px;
+}
+.accordion-inner{border-top: none;}
+.form-rec-nueva{
+	text-align: center;
+}
+.form-rec-nueva>select{width: 300px;}
+.form-rec-nueva>h4{
+	text-align: left;
+	padding-left: 100px;
+}
+.form-botones .btn{width: 100px;}
+.form-remove-item{font-size: 25px;}

@@ -36,10 +36,65 @@
 				<div class="panel-heading">
 					<h3 class="panel-title"><i class="icon-tasks"></i> Menú principal</h3>
 				</div>
-				<a href="#" class="enlaces-menu">Gestionar Recetas</a>
-				<a href="#" class="enlaces-menu">Gestionar Curas</a>
-				<a href="#" class="enlaces-menu">Gestionar Productos</a>
-				<a href="#" class="enlaces-menu">Dar de baja Agricultores</a>
+
+				<div class="accordion" id="accordion2">
+					<div class="accordion-group">
+						<div class="accordion-heading">
+						  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+						    Gestionar Recetas
+						  </a>
+						</div>
+						<div id="collapseOne" class="accordion-body collapse">
+						  <div class="accordion-inner">
+						    <a href="<?php echo base_url();?>index.php/recetas/nueva">+ Crear receta</a><br>
+						    <a href="#">+ Modificar receta</a><br>
+						    <a href="#">+ Borrar receta</a>
+						  </div>
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+						  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+						    Gestionar Curas
+						  </a>
+						</div>
+						<div id="collapseTwo" class="accordion-body collapse">
+						  <div class="accordion-inner">
+						    <a href="#">+ Crear cura</a><br>
+						    <a href="#">+ Modificar cura</a><br>
+						    <a href="#">+ Borrar cura</a>
+						  </div>
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+						  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+						    Gestionar Productos
+						  </a>
+						</div>
+						<div id="collapseThree" class="accordion-body collapse">
+						  <div class="accordion-inner">
+						    <a href="#">+ Introducir producto</a><br>
+						    <a href="#">+ Modificar producto</a><br>
+						    <a href="#">+ Borrar producto</a>
+						  </div>
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+						  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+						    Gestionar Agricultores
+						  </a>
+						</div>
+						<div id="collapseFour" class="accordion-body collapse">
+						  <div class="accordion-inner">
+						    <a href="#">+ Dar de baja a un agricultor</a><br>
+						  </div>
+						</div>
+					</div>
+				</div>
+
+
 			</div>
 			<div class="panel panel-success span4" id="ultimas-recetas">
 				<div class="panel-heading">
