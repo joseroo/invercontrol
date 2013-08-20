@@ -41,6 +41,7 @@ class Tecnico extends CI_Controller {
                 $userlogin=$_POST['userlogin'];
                 $_SESSION['nombre'] = $Existe->nombre;
                 $_SESSION['login'] = $userlogin;
+                $_SESSION['id'] = $Existe->id;
                 redirect('/tecnico');
             }
             else

@@ -60,9 +60,8 @@
 						</div>
 						<div id="collapseThree" class="accordion-body collapse">
 						  <div class="accordion-inner">
-						    <a href="#">+ Introducir producto</a><br>
-						    <a href="#">+ Modificar producto</a><br>
-						    <a href="#">+ Borrar producto</a>
+						    <a href="<?php echo base_url();?>index.php/productos/nuevo_producto">+ Introducir producto</a><br>
+						    <a href="<?php echo base_url();?>index.php/productos/ver_productos">+ Ver lista de productos</a>
 						  </div>
 						</div>
 					</div>
