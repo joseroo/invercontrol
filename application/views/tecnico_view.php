@@ -54,20 +54,6 @@
 					</div>
 					<div class="accordion-group">
 						<div class="accordion-heading">
-						  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-						    Gestionar Curas
-						  </a>
-						</div>
-						<div id="collapseTwo" class="accordion-body collapse">
-						  <div class="accordion-inner">
-						    <a href="#">+ Crear cura</a><br>
-						    <a href="#">+ Modificar cura</a><br>
-						    <a href="#">+ Borrar cura</a>
-						  </div>
-						</div>
-					</div>
-					<div class="accordion-group">
-						<div class="accordion-heading">
 						  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
 						    Gestionar Productos
 						  </a>
