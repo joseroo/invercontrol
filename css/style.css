@@ -142,3 +142,12 @@ h1{font-weight: normal;}
 	padding-left: 100px;
 }
 .form-remove-item{font-size: 25px;}
+.acciones{
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+
+tr[class='agitable']:hover{
+	background-color: #BAC5FF;
+}

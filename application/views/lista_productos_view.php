@@ -3,7 +3,7 @@
 <!-- CONTENIDO -->
 
 	<ul class="breadcrumb">
-		<li><a href="#">Inicio</a> <span class="divider">/</span></li>
+		<li><a href="<?php echo base_url();?>index.php/tecnico">Inicio</a> <span class="divider">/</span></li>
 		<li class="active">Lista de productos</li>
 	</ul>
 
@@ -16,9 +16,10 @@
 			<div class="span6 offset3 form-prod-nuevo">
 				<fieldset>
 					<legend><h4>Listado de productos</h4></legend>
-					<table class="table table-striped">
+					<table class="table">
 						<thead>
 							<tr>
+								<th>ID</th>
 								<th>Nombre</th>
 								<th>Materia Activa</th>
 								<th>Cantidad</th>
@@ -32,7 +33,8 @@
 						<tbody>
 						<?php 
 							foreach($productos as $producto){
-								echo "<tr>";
+								echo "<tr class='agitable'>";
+								echo "<td>".$producto->id."</td>";
 								echo "<td>".$producto->nombre."</td>";
 								echo "<td>".$producto->materia_activa."</td>";
 								echo "<td style='text-align:center;'>".$producto->cantidad."</td>";
@@ -41,7 +43,9 @@
 								echo "<td>".$producto->plazo_seguridad."</td>";
 								if($producto->estado == "1") echo "<td style='text-align:center;'><span class='label label-success'>Activo</span></td>";
 								else echo "<td style='text-align:center;'><span class='label label-important'>Inactivo</span></td>";
-								echo "<td style='font-size:20px;'><a href='#' class='btn btn-warning' style='margin-right:5px;'><i class='icon-edit'></i></a><a href='#' class='btn btn-danger'><i class='icon-trash'></i></a></td>";
+								echo "<td style='font-size:20px;'>";
+								echo "<a href='".base_url()."index.php/productos/modificar_producto/".$producto->id."' class='btn btn-warning acciones' style='margin-right:5px;' data-toggle='tooltip' data-placement='top' title='Modificar producto'><i class='icon-edit'></i></a>";
+								if($producto->estado == "1") echo "<a href='#' class='btn btn-danger acciones' data-toggle='tooltip' data-placement='top' title='Borrar (Se pasará el producto a Inactivo)'><i class='icon-trash'></i></a></td>";
 								echo "</tr>";
 							}
 						?>
@@ -55,7 +59,9 @@
 
 
 </div>
-
+<script>
+	$('.acciones').tooltip()
+</script>
 <!-- Carga del pie -->
 <?php echo $this->load->view('footer_view'); ?>
 </body>

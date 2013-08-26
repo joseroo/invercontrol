@@ -3,7 +3,7 @@
 <!-- CONTENIDO -->
 
 	<ul class="breadcrumb">
-		<li><a href="#">Inicio</a> <span class="divider">/</span></li>
+		<li><a href="<?php echo base_url();?>index.php/tecnico">Inicio</a> <span class="divider">/</span></li>
 		<li class="active">Nuevo producto</li>
 	</ul>
 

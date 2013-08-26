@@ -11,5 +11,17 @@ class Productos_model extends CI_Model{
 		$res = $this->db->get('productos_tecnicos');
 		return $res->result();
 	}
+
+	function getProductoPorId($id){
+		$this->db->where('id', $id);
+		$res = $this->db->get('productos_tecnicos');
+		return $res->result();
+	}
+
+	function modProducto($datos_producto){
+		$this->db->where('id', $datos_producto['id']);
+		$res = $this->db->update('productos_tecnicos', $datos_producto);
+		return ($res == false) ? 1 : 0;
+	}
 }
 ?>
