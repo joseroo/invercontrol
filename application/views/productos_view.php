@@ -16,14 +16,14 @@
 			<div class="span6 offset3 form-prod-nuevo">
 				<?php echo form_open('productos/crear_producto'); ?>
 				<fieldset>
-					<legend><h4>Datos del producto</h4></legend>
+					<legend><h4><a href="<?php echo base_url();?>index.php/tecnico" data-toggle='tooltip' data-placement='top' title='Volver' class="acciones"><i class="icon-mail-reply" ></i></a> Datos del producto</h4></legend>
 
 						<?php
 							if(isset($error)){
 								echo "<div class='alert alert-error'><button type='button' class='close' data-dismiss='alert'>&times;</button>Por favor, rellena el campo <strong>".$error."</strong>.</div>";
 							}
 						?>
-						<input type="hidden" name="idTecnico" value="<?php echo $_SESSION['id'];?>" /><br>
+						<input type="hidden" name="idTecnico" value="<?php echo $_SESSION['id'];?>" />
 						<input type="text" name="nombre" placeholder="nombre del producto..." required="required"/><br>
 						<textarea name="materia_activa" placeholder="materia activa..." required="required"></textarea><br>
 						<select name="unidad_medida" required="required">

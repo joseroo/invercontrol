@@ -24,7 +24,7 @@
     </div>
     <div class="account-container">
         <div class="login-panel content clearfix">		
-            <?php echo form_open('inspector/validar_registro', array('id'=>'registro-form')); ?>
+            <?php echo form_open('tecnico/validar_registro', array('id'=>'registro-form')); ?>
                 <center><img src="<?php echo base_url();?>img/user.png"><h1>Registro</h1></center>
                 <br>
                 <div class="ErrorLogin">

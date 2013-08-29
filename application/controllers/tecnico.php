@@ -78,5 +78,57 @@ class Tecnico extends CI_Controller {
     		$this->load->view('login_view', $data);
     	}
     }
+
+    /* =========================================================================
+     * BUSCAR($SW)
+     * ========================================================================= */
+    public function buscar($sw) {
+        switch($sw) {
+            case 1:
+                $data['opcion'] = "Nombre del agricultor";
+                $data['opcion_var'] = "1";
+                $this->load->view('buscar_view', $data);
+                break;
+            case 2:
+                $data['opcion'] = "Número de agricultor";
+                $data['opcion_var'] = "2";
+                $this->load->view('buscar_view', $data);
+                break;
+            case 3:
+                $data['opcion'] = "Nombre del producto";
+                $data['opcion_var'] = "3";
+                $this->load->view('buscar_view', $data);
+                break;
+            case 4:
+                $data['opcion'] = "Fecha de dósis";
+                $data['opcion_var'] = "4";
+                $this->load->view('buscar_view', $data);
+                break;
+            case 5:
+                $data['opcion'] = "Nombre de la finca";
+                $data['opcion_var'] = "5";
+                $this->load->view('buscar_view', $data);
+                break;
+            case 6:
+                $data['opcion'] = "Nombre del invernadero";
+                $data['opcion_var'] = "6";
+                $this->load->view('buscar_view', $data);
+                break;
+
+        }
+    }
+
+    /* =========================================================================
+     * BUSCARDOR()
+     * ========================================================================= */
+    public function buscador(){
+        $sw = $_POST['op'];
+        $campo = $_POST['campo'];
+        $this->load->model('tecnico_model');
+        $res = $this->tecnico_model->buscar($sw, $campo);
+        $data['busqueda'] = $res;
+        $data['op'] = $sw;
+        $this->load->view('buscador_view', $data);
+    }
 }
 ?>

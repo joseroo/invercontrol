@@ -80,7 +80,7 @@ class Productos extends CI_Controller {
     }
 
     /* =========================================================================
-     * modificarProducto($id) BASE DATOS
+     * modificarProducto() BASE DATOS
      * ========================================================================= */
     public function modificarProducto(){
         $datos_producto = array(
@@ -96,6 +96,24 @@ class Productos extends CI_Controller {
         );
         $this->load->model('productos_model');
         $res = $this->productos_model->modProducto($datos_producto);
+        if($res == 0) redirect('/productos/ver_productos');
+    }
+
+    /* =========================================================================
+     * borrar_producto($id)
+     * ========================================================================= */
+    public function borrar_producto($id){
+        $this->load->model('productos_model');
+        $res = $this->productos_model->borrarProducto($id);
+        if($res == 0) redirect('/productos/ver_productos');
+    }
+
+    /* =========================================================================
+     * restaurar_producto($id)
+     * ========================================================================= */
+    public function restaurar_producto($id){
+        $this->load->model('productos_model');
+        $res = $this->productos_model->restaurarProducto($id);
         if($res == 0) redirect('/productos/ver_productos');
     }
 }

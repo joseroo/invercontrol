@@ -16,7 +16,7 @@
 			<div class="span6 offset3 form-rec-nueva">
 				<?php echo form_open('recetas/crear_receta'); ?>
 				<fieldset>
-					<legend><h4>Datos del agricultor</h4></legend>
+					<legend><h4><a href="<?php echo base_url();?>index.php/tecnico" data-toggle='tooltip' data-placement='top' title='Volver' class="acciones"><i class="icon-mail-reply" ></i></a> Datos del agricultor</h4></legend>
 					<br>
 						<select name="agricultor" id="agricultor">
 							<option value="" disabled selected="selected">Seleccione a un agricultor...</option>
@@ -92,7 +92,7 @@
 		<div class="span6 offset3 form-botones">
 			<center>
 			<a href="#" class="btn btn-success">Enviar</a>
-			<a href="#" class="btn btn-danger">Cancelar</a>
+			<a href="<?php echo base_url();?>index.php/tecnico" class="btn btn-danger">Cancelar</a>
 		</center>
 		</div>
 	</div>

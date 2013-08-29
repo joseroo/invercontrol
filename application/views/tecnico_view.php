@@ -14,15 +14,14 @@
 				<span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu">
-				<li><a href="#">Nombre del agricultor</a></li>
-				<li><a href="#">Número de agricultor</a></li>
-				<li><a href="#">Nombre de producto</a></li>
-				<li><a href="#">Fecha de dósis</a></li>
-				<li><a href="#">Nombre de finca</a></li>
-				<li><a href="#">Nombre de invernadero</a></li>
+				<li><a href="<?php echo base_url();?>index.php/tecnico/buscar/1">Nombre del agricultor</a></li>
+				<li><a href="<?php echo base_url();?>index.php/tecnico/buscar/2">Número de agricultor</a></li>
+				<li><a href="<?php echo base_url();?>index.php/tecnico/buscar/3">Nombre de producto</a></li>
+				<li><a href="<?php echo base_url();?>index.php/tecnico/buscar/4">Fecha de dósis</a></li>
+				<li><a href="<?php echo base_url();?>index.php/tecnico/buscar/5">Nombre de finca</a></li>
+				<li><a href="<?php echo base_url();?>index.php/tecnico/buscar/6">Nombre de invernadero</a></li>
 			</ul>
 		</div>
-		<input type="text" name="texto-busqueda" id="texto-busqueda">
 	</center><br><br>
 	<div class="clearfix"></div>
 
@@ -47,8 +46,7 @@
 						<div id="collapseOne" class="accordion-body collapse">
 						  <div class="accordion-inner">
 						    <a href="<?php echo base_url();?>index.php/recetas/nueva">+ Crear receta</a><br>
-						    <a href="#">+ Modificar receta</a><br>
-						    <a href="#">+ Borrar receta</a>
+						    <a href="#">+ Ver lista de recetas</a><br>
 						  </div>
 						</div>
 					</div>
@@ -73,7 +71,7 @@
 						</div>
 						<div id="collapseFour" class="accordion-body collapse">
 						  <div class="accordion-inner">
-						    <a href="#">+ Dar de baja a un agricultor</a><br>
+						    <a href="<?php echo base_url();?>index.php/agricultores/lista">+ Dar de baja a un agricultor</a><br>
 						  </div>
 						</div>
 					</div>

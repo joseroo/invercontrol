@@ -23,5 +23,19 @@ class Productos_model extends CI_Model{
 		$res = $this->db->update('productos_tecnicos', $datos_producto);
 		return ($res == false) ? 1 : 0;
 	}
+
+	function borrarProducto($id) {
+		$data = array('estado' => '0');
+		$this->db->where('id', $id);
+		$res = $this->db->update('productos_tecnicos', $data);
+		return ($res == false) ? 1 : 0;
+	}
+
+	function restaurarProducto($id) {
+		$data = array('estado' => '1');
+		$this->db->where('id', $id);
+		$res = $this->db->update('productos_tecnicos', $data);
+		return ($res == false) ? 1 : 0;
+	}
 }
 ?>

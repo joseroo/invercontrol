@@ -16,7 +16,7 @@
 			<div class="span6 offset3 form-prod-nuevo">
 				<?php echo form_open('productos/modificarProducto'); ?>
 				<fieldset>
-					<legend><h4>Datos del producto</h4></legend>
+					<legend><h4><a href="<?php echo base_url();?>index.php/productos/ver_productos" data-toggle='tooltip' data-placement='top' title='Volver' class="acciones"><i class="icon-mail-reply" ></i></a> Datos del producto</h4></legend>
 
 						<input type="hidden" name="idTecnico" value="<?php echo $_SESSION['id'];?>" />
 						<input type="hidden" name="id" value="<?php echo $producto[0]->id;?>">
