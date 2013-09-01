@@ -46,7 +46,7 @@
 						<div id="collapseOne" class="accordion-body collapse">
 						  <div class="accordion-inner">
 						    <a href="<?php echo base_url();?>index.php/recetas/nueva">+ Crear receta</a><br>
-						    <a href="#">+ Ver lista de recetas</a><br>
+						    <a href="<?php echo base_url();?>index.php/recetas/lista">+ Ver lista de recetas</a><br>
 						  </div>
 						</div>
 					</div>

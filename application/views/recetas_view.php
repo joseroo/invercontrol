@@ -3,7 +3,7 @@
 <!-- CONTENIDO -->
 
 	<ul class="breadcrumb">
-		<li><a href="#">Inicio</a> <span class="divider">/</span></li>
+		<li><a href="<?php echo base_url();?>index.php/tecnico">Inicio</a> <span class="divider">/</span></li>
 		<li class="active">Nueva receta</li>
 	</ul>
 
@@ -16,8 +16,15 @@
 			<div class="span6 offset3 form-rec-nueva">
 				<?php echo form_open('recetas/crear_receta'); ?>
 				<fieldset>
-					<legend><h4><a href="<?php echo base_url();?>index.php/tecnico" data-toggle='tooltip' data-placement='top' title='Volver' class="acciones"><i class="icon-mail-reply" ></i></a> Datos del agricultor</h4></legend>
+					<legend><h4><a href="<?php echo base_url();?>index.php/tecnico" data-toggle='tooltip' data-placement='top' title='Volver' class="acciones"><i class="icon-mail-reply" ></i></a> Datos de la receta</h4></legend>
+					<input type="text" name="nombre" placeholder="Nombre de la receta...">
 					<br>
+					<input type="date" name="fecha">
+
+				</fieldset>
+				<br><br>
+				<fieldset>
+					<legend><h4>Datos del agricultor</h4></legend>
 						<select name="agricultor" id="agricultor">
 							<option value="" disabled selected="selected">Seleccione a un agricultor...</option>
 							<?php 
@@ -41,7 +48,6 @@
 				<br><br>
 				<fieldset>
 					<legend><h4>Datos de los productos</h4></legend>
-					<br>
 						<!--<select name="producto">
 							<option value="" disable selected="selected">Seleccione un producto...</option>
 							<?php 
@@ -91,7 +97,7 @@
 	<div class="span12">
 		<div class="span6 offset3 form-botones">
 			<center>
-			<a href="#" class="btn btn-success">Enviar</a>
+			<input type="submit" class="btn btn-success">
 			<a href="<?php echo base_url();?>index.php/tecnico" class="btn btn-danger">Cancelar</a>
 		</center>
 		</div>

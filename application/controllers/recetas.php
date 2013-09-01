@@ -14,5 +14,15 @@ class Recetas extends CI_Controller {
         
 		$this->load->view('recetas_view', $data);
 	}
+
+    /* =========================================================================
+     * LSITA()
+     * ========================================================================= */
+    public function lista() {
+        $this->load->model('recetas_model');
+        $recetas = $this->recetas_model->getRecetas();
+        $data['recetas'] = $recetas;
+        $this->load->view('lista_recetas_view', $data);
+    }
 }
 ?>
