@@ -59,7 +59,7 @@
 						<div id="collapseThree" class="accordion-body collapse">
 						  <div class="accordion-inner">
 						    <a href="<?php echo base_url();?>index.php/productos/nuevo_producto">+ Introducir producto</a><br>
-						    <a href="<?php echo base_url();?>index.php/productos/ver_productos">+ Ver lista de productos</a>
+						    <a href="<?php echo base_url();?>index.php/productos/lista">+ Ver lista de productos</a>
 						  </div>
 						</div>
 					</div>
@@ -71,7 +71,8 @@
 						</div>
 						<div id="collapseFour" class="accordion-body collapse">
 						  <div class="accordion-inner">
-						    <a href="<?php echo base_url();?>index.php/agricultores/lista">+ Dar de baja a un agricultor</a><br>
+						  	<a href="<?php echo base_url();?>index.php/agricultores/nuevo_agricultor">+ Agregar un agricultor</a><br>
+						    <a href="<?php echo base_url();?>index.php/agricultores/lista">+ Ver lista de agricultores</a>
 						  </div>
 						</div>
 					</div>

@@ -13,7 +13,7 @@
 	<!-- DIV MENU -->
 	<div class="row-fluid">
 		<div class="span12">
-			<div class="span6 offset3 form-prod-nuevo">
+			<div class="span10 offset1 form-prod-nuevo">
 				<fieldset>
 					<legend><h4><a href="<?php echo base_url();?>index.php/tecnico" data-toggle='tooltip' data-placement='top' title='Volver' class="acciones"><i class="icon-mail-reply" ></i></a> Listado de productos</h4></legend>
 					<table class="table">
@@ -22,9 +22,9 @@
 								<th>ID</th>
 								<th>Nombre</th>
 								<th>Materia Activa</th>
-								<th>Cantidad</th>
-								<th>Medida</th>
-								<th>Precio</th>
+								<th style="text-align:center;">Cantidad</th>
+								<th style="text-align:center;">Medida</th>
+								<th style="text-align:center;">Precio</th>
 								<th>Plazo de seguridad</th>
 								<th style="text-align:center;">Estado</th>
 								<th style="text-align:center;">Acciones</th>

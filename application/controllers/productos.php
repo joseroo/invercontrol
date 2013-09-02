@@ -62,7 +62,7 @@ class Productos extends CI_Controller {
     /* =========================================================================
      * ver_productos() VISTA
      * ========================================================================= */
-    public function ver_productos(){
+    public function lista(){
         $this->load->model('productos_model');
         $productos = $this->productos_model->getProductos();
         $data['productos'] = $productos;

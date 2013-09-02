@@ -13,7 +13,7 @@
 	<!-- DIV MENU -->
 	<div class="row-fluid">
 		<div class="span12">
-			<div class="span6 offset3">
+			<div class="span8 offset2">
 				<fieldset>
 					<legend><center><h4><a href="<?php echo base_url();?>index.php/tecnico" data-toggle='tooltip' data-placement='top' title='Volver' class="acciones"><i class="icon-mail-reply" ></i></a> Listado de recetas</h4></center></legend>
 					<?php 

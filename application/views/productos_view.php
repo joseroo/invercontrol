@@ -24,16 +24,16 @@
 							}
 						?>
 						<input type="hidden" name="idTecnico" value="<?php echo $_SESSION['id'];?>" />
-						<input type="text" name="nombre" placeholder="nombre del producto..." required="required"/><br>
-						<textarea name="materia_activa" placeholder="materia activa..." required="required"></textarea><br>
-						<select name="unidad_medida" required="required">
+						<label for="nombre">Nombre</label><input type="text" name="nombre" id="nombre" placeholder="nombre del producto..." required="required"/><br>
+						<label for="materia_activa">Materia Activa</label><textarea name="materia_activa" id="materia_activa" placeholder="materia activa..." required="required"></textarea><br>
+						<label for="unidad_medida">Unidad de medida</label><select name="unidad_medida" id="unidad_medida" required="required">
 							<option value="" selected="selected">Unidad de medida...</option>
 							<option value="ml">Mili-litros (ml)</option>
 							<option value="g">Gramos (g)</option>
 						</select><br>
-						<input type="text" name="cantidad" placeholder="cantidad..." required="required" /><br>
-						<input type="text" name="precio" placeholder="precio..." required="required" /><br>
-						<textarea name="plazo_seguridad" placeholder="plazo de seguridad..." required="required"></textarea>
+						<label for="cantidad">Cantidad</label><input type="text" name="cantidad" id="cantidad" placeholder="cantidad..." required="required" /><br>
+						<label for="precio">Precio</label><input type="text" name="precio" id="precio" placeholder="precio..." required="required" /><br>
+						<label for="plazo_seguridad">Plazo de Seguridad</label><textarea name="plazo_seguridad" id="plazo_seguridad" placeholder="plazo de seguridad..." required="required"></textarea>
 				</fieldset>
 			</div>
 		</div>

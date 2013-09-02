@@ -29,6 +29,8 @@
                         <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
+                            <li><?php echo "<a href='".base_url()."index.php/tecnico/editar_perfil'>Editar perfil</a>"; ?></li>
+                            <li class="divider"></li>
                             <li><?php echo "<a href='".base_url()."index.php/tecnico/cerrar_sesion'>Cerrar sesion</a>"; ?></li>
                         </ul>
                     </div>
