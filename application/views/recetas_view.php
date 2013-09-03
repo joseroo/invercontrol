@@ -17,14 +17,15 @@
 				<?php echo form_open('recetas/crear_receta'); ?>
 				<fieldset>
 					<legend><h4><a href="<?php echo base_url();?>index.php/tecnico" data-toggle='tooltip' data-placement='top' title='Volver' class="acciones"><i class="icon-mail-reply" ></i></a> Datos de la receta</h4></legend>
-					<input type="text" name="nombre" placeholder="Nombre de la receta...">
+					<label for="nombre_receta">Nombre de la receta</label><input type="text" name="nombre_receta" id="nombre_receta" placeholder="Nombre de la receta...">
 					<br>
-					<input type="date" name="fecha">
+					<label for="fecha">Fecha</label><input type="text" name="fecha" id="fecha">
 
 				</fieldset>
 				<br><br>
 				<fieldset>
 					<legend><h4>Datos del agricultor</h4></legend>
+						<label for="agricultor">Agricultor</label>
 						<select name="agricultor" id="agricultor">
 							<option value="" disabled selected="selected">Seleccione a un agricultor...</option>
 							<?php 
@@ -35,56 +36,33 @@
 						</select>
 
 						<br>
-						<select name="finca" id="finca" disabled="disabled">
-							<option value="0" selected="selected" readonly="readonly">Seleccione una finca...</option>
-						</select>
-
+						<div id="div-finca">
+							<label for="finca">Finca</label>
+							<select name="finca" id="finca"></select>
+						</div>
 						<br>
-						<select name="invernadero" id="invernadero" disabled="disabled" style="margin-left: -5px;">
-							<option value="0" selected="selected" readonly="readonly">Seleccione un invernadero...</option>
-						</select>
-
+						<div id="div-invernadero">
+							<label for="invernadero">Invernadero</label>
+							<select name="invernadero" id="invernadero" style="margin-left: -5px;"></select>
+						</div>
 				</fieldset>
 				<br><br>
 				<fieldset>
-					<legend><h4>Datos de los productos</h4></legend>
-						<!--<select name="producto">
+					<legend><h4>Productos para la receta</h4></legend>
+				        <select name="producto" id="producto">
 							<option value="" disable selected="selected">Seleccione un producto...</option>
 							<?php 
 								foreach($productos as $producto){
-									echo "<option value='".$producto->id."'>".$producto->id." - ".$producto->nombre."</option>";
+									echo "<option value='".$producto->id."' data-medida='".$producto->unidad_medida."' data-nombre='".$producto->nombre."' data-id='".$producto->id."'>".$producto->id." - ".$producto->nombre." (".$producto->unidad_medida.")</option>";
 								}
 							?>
 						</select>
-						<input type="text" name="ccdosis" placeholder="cc de dosis">
-						<br>-->
-
-
-				
-				<div id="contenedor">
-				    <div class="added">
-				        <!--<input type="text" name="mitexto[]" id="campo_1" placeholder="Texto 1"/>-->
-				        <select name="producto">
-							<option value="" disable selected="selected">Seleccione un producto...</option>
-							<?php 
-								foreach($productos as $producto){
-									echo "<option value='".$producto->id."'>".$producto->id." - ".$producto->nombre."</option>";
-								}
-							?>
-						</select>
-						<input type="text" name="ccdosis" placeholder="cc de dosis"> <span class="form-remove-item"><i class="icon-remove" style="color:silver;"></i></span>
-				    </div>
-
-				</div>
-				<a id="agregarCampo" class="btn btn-info" href="#"><i class="icon-plus"></i> Añadir otro producto</a>
-
-
-
-
-
-
-
+						<input type="text" name="ccdosisform" placeholder="cantidad. Ej (250.30)" id="ccdosisform"> <a id="agregarCampo" class="btn btn-info agregar-producto" href="javascript:void();"><i class="icon-plus"></i> Añadir</a>
+						<br><br>
+						Productos:<br><br>
+						<div class="span8 offset2 lista-productos"></div>	
 				</fieldset>
+				<span class="mostrar"></span>
 			</div>
 		</div>
 	</div>
@@ -105,63 +83,32 @@
 </div>
 </form>
 
-<script type="text/javascript">
-
+<script>
 	$(document).ready(function() {
+		var arrayProductos = [];
+		var i = 0;
+        $('#agregarCampo').click(function(event) {
+        	i++;
+            $('.lista-productos').append("<span class='producto-"+i+"'><i class='icon-ok-circle'></i> #"+$('#producto option:selected').attr('data-id')+" - "+$('#producto option:selected').attr('data-nombre')+" / "+$('#ccdosisform').val()+" ("+$('#producto option:selected').attr('data-medida')+")"+" <a href='javascript:void()' class='acciones' id='borrar-producto' data-toggle='tooltip' data-placement='top' title='Borrar producto'><i class='icon-remove'></i></a></span><br>");
+            $('.lista-productos').append("<input type='hidden' name='idProducto[]' value='"+$('#producto').val()+"'>");
+            $('.lista-productos').append("<input type='hidden' name='ccDosis[]' value='"+$('#ccdosisform').val()+"'>");
+        });
 
-    var MaxInputs       = 8; //Número Maximo de Campos
-    var contenedor       = $("#contenedor"); //ID del contenedor
-    var AddButton       = $("#agregarCampo"); //ID del Botón Agregar
-
-    //var x = número de campos existentes en el contenedor
-    var x = $("#contenedor div").length + 1;
-    var FieldCount = x-1; //para el seguimiento de los campos
-
-    $(AddButton).click(function (e) {
-        if(x <= MaxInputs) //max input box allowed
-        {
-            FieldCount++;
-            //agregar campo
-            $(contenedor).append('<div><select name="producto-'+ FieldCount +'" id="producto-'+ FieldCount +'"><option value="">Seleccione un producto...</option></select> <input type="text" name="ccdosis" placeholder="cc de dosis"> <a href="#" class="eliminar"><span class="form-remove-item"><i class="icon-remove"></i></span></a></div>');
-            x++; //text box increment
-        }
-        var base_url = '<?php echo base_url();?>index.php/recetas/getProductosAjax';
-        // Crear funcion de AJAX con los datos de los productos
-        getProductos(base_url);
-
-
-
-		option.text="Kiwi";
-		s.add(option,null);
-        return false;
+        $('#agricultor').on("change", function(){
+        	var base_url = "<?php echo base_url();?>index.php/agricultores/fincas/";
+        	var id = $(this).val();
+        	$.ajax({
+		        url: base_url + id,
+		        type: 'POST',
+		        success: muestraFincas,
+		        error: muestraError
+		    });
+        });
     });
 
-    $("body").on("click",".eliminar", function(e){ //click en eliminar campo
-        if( x > 1 ) {
-            $(this).parent('div').remove(); //eliminar el campo
-            x--;
-        }
-        return false;
-    });
-
-    function getProductos(base_url)
-	{
-	    $.ajax({
-	        url: base_url,
-	        type: 'POST',
-	        success: muestraProductos,
-	        error: muestraError
-	    });
+	function muestraFincas(fincas) {
+	    
 	}
-
-	function muestraProductos(productos){
-		var num = $("#contenedor div").length + 1;
-		var s=document.getElementById("producto-"+ num);
-        var option=document.createElement("option");
-        // Foreach con todos los option de la base de datos
-	}
-});
-
 </script>
 
 <!-- Carga del pie -->

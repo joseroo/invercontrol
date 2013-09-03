@@ -87,5 +87,12 @@ class Agricultores extends CI_Controller {
         $res = $this->agricultores_model->crearAgricultor($datos_agricultor);
         if($res == 0) redirect('/agricultores/lista');
     }
+
+    public function fincas($id) {
+        $this->load->model('agricultores_model');
+        $fincas = $this->agricultores_model->getFincas($id);
+        // Manda a la salida el array generado convirtiendolo en un objeto JSON
+        $this->output->set_content_type('application/json')->set_output(json_encode($fincas));
+    }
 }
 ?>

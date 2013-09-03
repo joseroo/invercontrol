@@ -9,7 +9,7 @@ class Recetas_model extends CI_Model{
 	}
 
 	function getProductos(){
-		$this->db->select('id, nombre');
+		$this->db->select('id, nombre, unidad_medida');
 		$res = $this->db->get('productos_tecnicos');
 		return $res->result();
 	}

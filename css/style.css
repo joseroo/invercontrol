@@ -162,3 +162,12 @@ tr[class='agitable']:hover{
 .divider-receta{
 	margin: 5px 0 0 0;
 }
+.agregar-producto{margin-top: -10px;}
+.lista-productos{
+	border: solid 1px rgb(213, 213, 213);
+	background-color: rgb(235, 235, 235);
+	border-radius: 5px;
+	min-height: 100px;
+	text-align: left;
+	padding: 20px;
+}

@@ -37,5 +37,11 @@ class Agricultores_model extends CI_Model{
 		if($res==false) return 1;
 		else return 0;
 	}
+
+	function getFincas($id){
+		$this->db->where('id_agricultor', $id);
+		$res = $this->db->get('fincas');
+		return $res->result_array();
+	}
 }
 ?>
